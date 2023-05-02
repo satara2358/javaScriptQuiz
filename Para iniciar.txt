@@ -1,0 +1,13 @@
+comandos {
+npm create vite@latest
+pnpm install
+
+npm run dev
+
+npm install ts-standard -D /// para correciones de ts
+npm install zustand -E
+npm install react-syntax-highlighter -E /// teams del quizz
+
+npm i --save-dev @types/react-syntax-highlighter  /// tipos del anterior paquete
+npm install canvas-confetti -E ////estilos
+npm i --save-dev @types/canvas-confetti /// tipos de estilos
