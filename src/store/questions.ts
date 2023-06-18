@@ -72,5 +72,5 @@ export const useQuestionsStore = create<State>()(persist((set, get) => {
     }
 }
 },{
-    name: 'questios'
+    name: 'questions'
 }))
