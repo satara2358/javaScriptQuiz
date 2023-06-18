@@ -1,4 +1,3 @@
-
 import { type Question as QuestionType } from "./types"
 import { useQuestionsStore } from "./store/questions"
 import SyntaxHighlighter from "react-syntax-highlighter"
