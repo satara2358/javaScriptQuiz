@@ -5,6 +5,7 @@ import SyntaxHighlighter from "react-syntax-highlighter"
 import { gradientDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Card, IconButton, List, ListItem, ListItemButton, ListItemText, Stack, Typography } from "@mui/material"
 import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material"
+import { Footer } from "./Footer"
 
 
 // funcion que se crea una vez 
@@ -73,6 +74,7 @@ export const Game = () => {
             </IconButton>
         </Stack>
             <Question info={questionInfo} />
+            <Footer />
         </>
     )
 }

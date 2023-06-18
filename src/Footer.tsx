@@ -1,26 +1,20 @@
-import { useQuestionsStore } from "./store/questions"
+import { Button } from '@mui/material'
+import { reset } from "canvas-confetti"
+import { useQuestionsData } from "./hooks/useQuestionsData"
+import { useQuestionsStore } from './store/questions'
 
 export const Footer = () => {
-
-    const questions = useQuestionsStore(state => state.questions)
-
-    let correcta = 0
-    let incorrectas = 0
-    let unanswered = 0
-
-    questions.forEach(question => {
-        const {userSelectedAnswer, correctAnswer} = question
-        if(userSelectedAnswer == null) unanswered++
-        else if (userSelectedAnswer === correctAnswer) correcta++
-        else incorrectas++
-
-    })
+    const {correcta, incorrectas, unanswered} = useQuestionsData()
+    const reset = useQuestionsStore(state => state.reset)
 
     return(
-        <footer>
+        <footer style={{marginTop: '16px'}}>
             <strong>
-                {`:white-check-mark`}
+                {`✅ ${correcta} Correctas- ❎ ${incorrectas} Incorrectas- ❓ ${unanswered} Sin Responder`}
             </strong>
+            <Button onClick={() => reset()}>
+                Reset Game 
+            </Button>
         </footer>
     )
 }

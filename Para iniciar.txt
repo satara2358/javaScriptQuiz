@@ -2,7 +2,6 @@ comandos {
 npm create vite@latest
 pnpm install
 
-npm run dev
 
 npm install ts-standard -D /// para correciones de ts
 npm install zustand -E

@@ -1,6 +1,8 @@
+import { reset } from 'canvas-confetti';
 import { type Question } from "../types";   
 import { create } from "zustand";
 import confetti from 'canvas-confetti'
+import { persist } from "zustand/middleware";
 
 interface State {
     questions: Question[]
@@ -9,11 +11,9 @@ interface State {
     selectAnswer: (questionId: number, answerIndex: number) => void
     goNextQuestion: ()=> void
     goPreviousQuestion: ()=> void
-
-
 }
 
-export const useQuestionsStore = create<State>((set, get) => {
+export const useQuestionsStore = create<State>()(persist((set, get) => {
     return {
         loading: false,
         questions: [],  
@@ -65,6 +65,12 @@ export const useQuestionsStore = create<State>((set, get) => {
         if(previousQuestion >= 0){
             set({currentQuestion: previousQuestion})
         }
+    },
+
+    reset: () => {
+        set({ currentQuestion: 0, questions: []})
     }
 }
-})
+},{
+    name: 'questios'
+}))
